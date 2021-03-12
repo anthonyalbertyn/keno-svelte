@@ -1,5 +1,4 @@
 <script>
-    import App from '../App.svelte';
     import Header from './Header.svelte';
     import NumberItem from './NumberItem.svelte';
     import Button from './Button.svelte';
