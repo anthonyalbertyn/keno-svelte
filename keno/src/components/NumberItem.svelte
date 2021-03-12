@@ -2,6 +2,7 @@
     export let label;
     export let color;
     export let selection;
+    export let ariaLabel;
 
     let isActive;
     const maximum = 5;
@@ -31,7 +32,14 @@
     }
 </script>
 
-<div class={wrapperClasses} on:click={() => handleNumberClick(label)} >
+<div
+    class={wrapperClasses}
+    role="button"
+    aria-label={ariaLabel}
+    tabindex={0}
+    on:click={() => handleNumberClick(label)}
+    on:keyup={(event) => event.key === 'Enter' && handleNumberClick(label)}
+>
     <div class="label">{label}</div>
 </div>
 

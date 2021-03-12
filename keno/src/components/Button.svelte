@@ -1,4 +1,5 @@
 <script>
+    export let ariaLabel;
     export let buttonType;
     export let onClick;
 
@@ -11,7 +12,14 @@
 
 </script>
 
-<div class={buttonClasses[buttonType]} role="button" tabindex={0} on:click={onClick}>
+<div
+    class={buttonClasses[buttonType]}
+    role="button"
+    tabindex={0}
+    aria-label={ariaLabel}
+    on:click={onClick}
+    on:keyup={(event) => event.key === 'Enter' && onClick()}
+>
     {#if buttonType === "pound"}
         <span class="icon fas fa-pound-sign" />
     {/if}
@@ -35,8 +43,9 @@
         align-items: center;
         height: 2rem;
         padding: 0 1.5rem;
-        margin: 0 0.25rem;
+        margin: 0 0.25rem 0.5rem 0.25rem;
         cursor: pointer;
+        user-select: none;
     }
     .button:hover {
         color: #40a9ff;
@@ -47,11 +56,10 @@
         color: #fff;
         background: #1890ff;
         border-color: #1890ff;
-        border-radius: 5px;
         text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
         -webkit-box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
         box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
-        padding: 0.25rem 2rem;
+        padding: 0.25rem 4rem;
     }
     .button.primary:hover {
         color: #fff;

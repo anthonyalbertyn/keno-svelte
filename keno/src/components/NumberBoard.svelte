@@ -77,6 +77,7 @@
                 bind:selection
                 label={`${index + 1}`}
                 color={index > 39 ? "red" : "blue"}
+                ariaLabel={`Select ${index + 1}`}
             />
         {/each}
     </div>
@@ -89,16 +90,16 @@
 
     <div class="section-wrapper">
         {#each [1, 2, 5, 10, 20] as amount }
-            <Button buttonType="pound" onClick={() => handleStakeClick(amount.toFixed(2))}>{amount}</Button>
+            <Button buttonType="pound" ariaLabel={`£ ${amount}`} onClick={() => handleStakeClick(amount.toFixed(2))}>{amount}</Button>
         {/each}
         <input class="stake" type="number" step="0.01" placeholder="Stake amount" bind:value={stake}>
     </div>
     <div class="section-wrapper">
-        <Button buttonType="lucky" onClick={handleLuckyPickClick}>Lucky Pick</Button>
-        <Button buttonType="clear" onClick={handleClearBoardClick}>Clear Board</Button>
+        <Button buttonType="lucky" ariaLabel="Lucky Pick" onClick={handleLuckyPickClick}>Lucky Pick</Button>
+        <Button buttonType="clear" ariaLabel="Clear Board" onClick={handleClearBoardClick}>Clear Board</Button>
     </div>
     <div class="section-wrapper">
-        <Button buttonType="primary" onClick={handlePlaceBetClick}>Place Bet</Button>
+        <Button buttonType="primary" ariaLabel="Place Bet" onClick={handlePlaceBetClick}>Place Bet</Button>
     </div>
 </section>
 
@@ -120,14 +121,26 @@
         padding: 0.5rem 1rem;
     }
     .message {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 500;
-        color: gray;
+        color: 333;
         margin-bottom: 0.5rem;
     }
     .stake {
-        margin: 0 0.25rem;
+        margin: 0 0.25rem 0.5rem 0.25rem;
         text-align: center;
         font-weight: bold;
+    }
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        font-weight: normal;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        font-weight: normal;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+        font-weight: normal;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        font-weight: normal;
     }
 </style>
