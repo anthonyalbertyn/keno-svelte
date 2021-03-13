@@ -12,7 +12,7 @@ The purpose of this project is only to test-drive Svelte and learn how to use Sv
 
 ## Getting started
 
-To start the project, cd into keno-svelte direcory and read the instructions in the README file.
+To start the project, cd into keno direcory and read the instructions in the README file.
 
 ## Screenshots
 
