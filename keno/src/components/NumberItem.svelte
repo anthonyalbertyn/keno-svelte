@@ -1,12 +1,18 @@
 <script>
+    // Component props
+
     export let label;
     export let color;
     export let selection;
     export let ariaLabel;
 
+    // Component state
+
     let isActive;
     const maximum = 5;
     let wrapperClasses = "number-item";
+
+    // Event handlers
 
     function handleNumberClick(selected) {
         if(selection.indexOf(selected) > -1) {
@@ -20,6 +26,9 @@
         }
     }
 
+    // Runs on mount and then again when state that this
+    // depends on changes
+    
     $: {
         isActive = selection.indexOf(label) > -1;
         if(isActive) {

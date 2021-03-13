@@ -1,8 +1,12 @@
 <script>
+    // Component props
+
     export let ariaLabel;
     export let buttonType;
     export let onClick;
 
+    // Component state
+    
     let buttonClasses = {
         pound: "button pound",
         clear: "button clear",

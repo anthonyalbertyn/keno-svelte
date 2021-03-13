@@ -3,6 +3,8 @@
     import NumberItem from './NumberItem.svelte';
     import Button from './Button.svelte';
 
+    // Component state
+
     let selection = [];
     let message;
     let stake = "";
@@ -11,6 +13,8 @@
     numberRange.fill(1);
 
     let numbers = numberRange;
+
+    // Event handlers
 
     function pickRandomNumber() {
         const min = 1;
@@ -60,6 +64,8 @@
         stake = amount;
     }
 
+    // Runs on mount and then when the state this depends on changes
+
     $: {
         const regexp = /^\d+(\.\d{1,2})?$/;
         if(stake && !regexp.test(stake)) {
@@ -89,16 +95,46 @@
 
     <div class="section-wrapper">
         {#each [1, 2, 5, 10, 20] as amount }
-            <Button buttonType="pound" ariaLabel={`£ ${amount}`} onClick={() => handleStakeClick(amount.toFixed(2))}>{amount}</Button>
+            <Button
+                buttonType="pound"
+                ariaLabel={`£ ${amount}`}
+                onClick={() => handleStakeClick(amount.toFixed(2))}
+            >
+                {amount}
+            </Button>
         {/each}
-        <input class="stake" type="number" step="0.01" placeholder="Stake amount" bind:value={stake}>
+        <input
+            class="stake"
+            type="number"
+            step="0.01"
+            placeholder="Stake amount"
+            bind:value={stake}
+        >
     </div>
     <div class="section-wrapper">
-        <Button buttonType="lucky" ariaLabel="Lucky Pick" onClick={handleLuckyPickClick}>Lucky Pick</Button>
-        <Button buttonType="clear" ariaLabel="Clear Board" onClick={handleClearBoardClick}>Clear Board</Button>
+        <Button
+            buttonType="lucky"
+            ariaLabel="Lucky Pick"
+            onClick={handleLuckyPickClick}
+        >
+            Lucky Pick
+        </Button>
+        <Button
+            buttonType="clear"
+            ariaLabel="Clear Board"
+            onClick={handleClearBoardClick}
+        >
+            Clear Board
+        </Button>
     </div>
     <div class="section-wrapper">
-        <Button buttonType="primary" ariaLabel="Place Bet" onClick={handlePlaceBetClick}>Place Bet</Button>
+        <Button
+            buttonType="primary"
+            ariaLabel="Place Bet"
+            onClick={handlePlaceBetClick}
+        >
+            Place Bet
+        </Button>
     </div>
 </section>
 
