@@ -1,6 +1,6 @@
 # keno-svelte
 
-## This sotware is only for demonstration purposes and DOES NOT meet the technical standards set out by the Gambling Act 2005 (United Kingdom) and you are hereby warned that it is illegal to use this software for gambling in the United Kingdom or elsewhere, without acquiring the necessary licenses.
+**_This app is only for demonstration purposes and DOES NOT meet the technical standards set out by the Gambling Act 2005 (United Kingdom) and you are hereby warned that it is illegal to use this software for gambling in the United Kingdom or elsewhere, without acquiring the necessary licenses_**
 
 ## Coder
 
